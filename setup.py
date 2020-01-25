@@ -16,7 +16,7 @@ if __name__ == '__main__':
         package_data={},
         install_requires=[
             'numpy',
-            'sknw'
+            'sknw',
             'networkx==2.3',
             'numba',
             'scikit-image'
