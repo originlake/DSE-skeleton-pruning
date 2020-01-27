@@ -79,7 +79,7 @@ print("Show pruned skeleton")
 plt.imshow(new_skel);plt.show()
 ```
 
-    Show skeleton by skeletonize:
+    Show skeleton by medial_axis:
 
 
 
