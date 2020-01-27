@@ -30,7 +30,7 @@ plt.show()
 ```
 
 
-![png](output_3_0.png)
+![png](img/output_3_0.png)
 
 
 
