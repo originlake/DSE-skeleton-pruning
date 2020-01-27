@@ -1,12 +1,12 @@
 from setuptools import setup
 
-descr = """dse: Discrete skeleton evolution, a keleton pruning algorithm 
+descr = """dsepruning: Discrete skeleton evolution, a keleton pruning algorithm 
 """
 
 if __name__ == '__main__':
-    setup(name='dse',
+    setup(name='dsepruning',
         version='0.1',
-        url='https://github.com/originlake/DSE',
+        url='https://github.com/originlake/DSEpruning',
         description='skeleton pruning method',
         long_description=descr,
         author='Shuo Z',

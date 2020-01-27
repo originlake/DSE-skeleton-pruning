@@ -24,10 +24,10 @@ def circle(r, c, radius, shape=None):
 @njit(parallel=True)
 def recnstrc_by_disk(branches, dist, recnstrc):
     recnstrc[:] = 0
-    for i in prange(len(branches)):
+    for i in range(len(branches)):
         r, c = branches[i]
         rr, cc = circle(r, c, dist[r,c], recnstrc.shape)
-        for j in prange(len(rr)):
+        for j in range(len(rr)):
             recnstrc[rr[j], cc[j]] += 1
             
 @njit
@@ -41,7 +41,6 @@ def remove_branch_by_DSE(G, recn, dist, max_px_weight, checked_terminal=set()):
     edges = list(G.edges())
     # temporary branch reconstruction mask
     branch_recn = np.zeros_like(recn, dtype=np.int32)
-    print("Start DSE:")
     for s, e in edges:
         if s == e:
             G.remove_edge(s, e)
@@ -100,6 +99,18 @@ def remove_mid_node(G):
     return G
 
 def skel_pruning_DSE(skel, dist, min_area_px=100):
+    """Skeleton pruning using dse
+    
+    Arguments:
+        skel {ndarray} -- skeleton obtained from skeletonization algorithm
+        dist {ndarray} -- distance transfrom map
+    
+    Keyword Arguments:
+        min_area_px {int} -- branch reconstruction weights, measured by pixel area. Branch reconstruction weights smaller than this threshold will be pruned. (default: {100})
+    
+    Returns:
+        ndarray -- pruned skeleton map
+    """
     graph = sknw.build_sknw(skel, multi=True)
     edges = list(graph.edges())
     pts = []
@@ -114,7 +125,7 @@ def skel_pruning_DSE(skel, dist, min_area_px=100):
     num_nodes = len(graph.nodes())
     checked_terminal = set()
     while True:
-        graph, recnstrc = remove_branch_by_DSE(graph, recnstrc, dist, min_area_px)
+        graph, recnstrc = remove_branch_by_DSE(graph, recnstrc, dist, min_area_px, checked_terminal=checked_terminal)
         if len(graph.nodes()) == num_nodes:
             break
         graph = remove_mid_node(graph)
