@@ -1,7 +1,15 @@
 # DSE
 Python implementation of discrete skeleton evolution, a skeleton pruning algorithm 
 http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.79.8377&rep=rep1&type=pdf
-  
+
+
+Setup
+```  
+pip install -r requirement.txt
+python setup.py build_ext --inplace
+```
+
+
 [Example](https://github.com/originlake/DSE/blob/master/example.ipynb)
 This algorithm filters out branches by evalutating their reconstruction weights. Original paper measures the weights by calculating the ratio of reconstruction pixel loss to whole reconstruction pixel, here the weights are simply the reconstruction pixel loss. 
 

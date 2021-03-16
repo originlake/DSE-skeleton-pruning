@@ -1,24 +1,18 @@
 from setuptools import setup
+from setuptools.extension import Extension
+from Cython.Build import cythonize
+import numpy
 
-descr = """dsepruning: Discrete skeleton evolution, a keleton pruning algorithm 
-"""
-
-if __name__ == '__main__':
-    setup(name='dsepruning',
-        version='0.1',
-        url='https://github.com/originlake/DSEpruning',
-        description='skeleton pruning method',
-        long_description=descr,
-        author='Shuo Z',
-        author_email='shuozhong0331@gmail.com',
-        license='MIT License',
-        packages=['dse'],
-        package_data={},
-        install_requires=[
-            'numpy',
-            'sknw',
-            'networkx==2.3',
-            'numba',
-            'scikit-image'
-            ],
+extensions = [
+    Extension(
+        'dsepruning.dse_helper',
+        ['dsepruning/dse_helper.pyx'],
+        include_dirs=[numpy.get_include()],
+        extra_compile_args=['-fopenmp'],
+        extra_link_args=['-fopenmp']
     )
+]
+
+setup(
+    ext_modules=cythonize(extensions)
+)
