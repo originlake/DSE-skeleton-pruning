@@ -10,7 +10,7 @@ python setup.py build_ext --inplace
 ```
 
 
-[Example](https://github.com/originlake/DSE/blob/master/example.ipynb)
+[Example](example/example.ipynb)
 This algorithm filters out branches by evalutating their reconstruction weights. Original paper measures the weights by calculating the ratio of reconstruction pixel loss to whole reconstruction pixel, here the weights are simply the reconstruction pixel loss. 
 
 
@@ -38,7 +38,7 @@ plt.show()
 ```
 
 
-![png](img/output_3_0.png)
+![png](example/img/output_3_0.png)
 
 
 
@@ -58,21 +58,21 @@ plt.imshow(new_skel);plt.show()
 
 
 
-![png](img/output_4_1.png)
+![png](example/img/output_4_1.png)
 
 
     Show distance map:
 
 
 
-![png](img/output_4_3.png)
+![png](example/img/output_4_3.png)
 
 
     Show pruned skeleton
 
 
 
-![png](img/output_4_5.png)
+![png](example/img/output_4_5.png)
 
 
 
@@ -91,19 +91,19 @@ plt.imshow(new_skel);plt.show()
 
 
 
-![png](img/output_5_1.png)
+![png](example/img/output_5_1.png)
 
 
     Show distance map:
 
 
 
-![png](img/output_5_3.png)
+![png](example/img/output_5_3.png)
 
 
     Show pruned skeleton
 
 
 
-![png](img/output_5_5.png)
+![png](example/img/output_5_5.png)
 
