@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from setuptools.extension import Extension
 from Cython.Build import cythonize
 import numpy
@@ -14,5 +14,8 @@ extensions = [
 ]
 
 setup(
-    ext_modules=cythonize(extensions)
+    name="dsepruning",
+    version = '0.1.0',
+    ext_modules=cythonize(extensions),
+    packages=find_packages(include = ['dsepruning', 'dsepruning.*'])
 )
