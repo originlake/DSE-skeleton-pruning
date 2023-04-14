@@ -1,4 +1,3 @@
-from numba import njit, prange
 import sknw
 import numpy as np
 from skimage.draw import line

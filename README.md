@@ -5,8 +5,7 @@ http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.79.8377&rep=rep1&type=p
 
 Setup
 ```  
-pip install -r requirement.txt
-python setup.py build_ext --inplace
+pip install -e .
 ```
 
 
