@@ -1,0 +1,28 @@
+[build-system]
+requires = [
+    "setuptools",
+    "wheel",
+    "Cython",
+    "numpy<1.24,>=1.18"    
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dsepruning"
+authors = [
+    {name="originlake"}
+]
+version = "0.1.0"
+description = "Python implementation of discrete skeleton evolution"
+requires-python = ">=3.6"
+license = {text ="MIT"}
+dependencies = [
+    "numpy<1.24,>=1.18",
+    "sknw",
+    "scikit-image",
+    "networkx>2.3"
+]
+
+[tool.setuptools.packages.find]
+include = ["dsepruning", "dsepruning.*"]
+
